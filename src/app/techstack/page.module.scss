@@ -8,18 +8,30 @@
     //@include flexDisplaying($direction: column, $justify: center);
     .technologiesContainer {
         min-height: 70vh;
-        @include responsiveGridLayout($itemWidth: 200px, $gap: 50px);
+        @include responsiveGridLayout($itemWidth: 220px, $gap: 50px);
         .card {
-            @include flexDisplaying($direction: column, $align: center);
-            gap: 8px;
-            width: 200px;
-            //margin-bottom: 30px;
-            .imageWrapper {
-                background-color: white;
-                overflow: hidden;
-                border-radius: 8px;
-                width: 200px;
-                height: 200px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            height: 253px;
+            transition: all .2s linear;
+            background-color: #323232;
+            border-radius: 8px;
+            overflow: hidden;
+            &:hover {
+                transform: scale(1.02) !important;
+                background-color: grey;
+                box-shadow: 0 8px 16px grey;
+            }
+            .link {
+                padding: 10px;
+                @include flexDisplaying($direction: column, $align: center);
+                gap: 10px;
+                .imageWrapper {
+                    background-color: white;
+                    overflow: hidden;
+                    border-radius: 8px;
+                    width: 200px;
+                    height: 200px;
+                }
             }
         }
     }

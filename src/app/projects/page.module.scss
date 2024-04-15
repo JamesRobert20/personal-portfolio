@@ -1,0 +1,87 @@
+@import '@/app/main';
+
+.container {
+    height: 100%;
+    padding: 40px 0;
+    .innerContainer {
+        padding-top: 20px;
+        height: calc(100% - 3rem);
+        .modesContainer {
+            padding-left: 3.2%;
+            height: 40px;
+            margin-bottom: 30px;
+            .disabled {
+                pointer-events: none
+            }
+            @include flexDisplaying();
+            gap: 15px;
+            .modeChip {
+                @include flexDisplaying($align: center, $justify: center);
+                min-width: 80px;
+                border-radius: 6px;
+                background-color: #323232;
+                padding: 10px;
+                &:hover {
+                    background-color: grey;
+                    box-shadow: 0 5px 10px grey;
+                }
+                &.active {
+                    background-color: grey;
+                }
+            }
+        }
+        .projectsContainer {
+            padding: 15px 15px 15px 0;
+            height: calc(100% - 80px);
+            &.listMode, &.gridMode {
+                overflow-y: auto;
+                @include styledVerticalScrollbar();
+                padding-left: 3.2%;
+            }
+            &.listMode {
+                .projectCard {
+                    width: 100%;
+                    height: 500px;
+                    background-color: red;
+                    margin-bottom: 50px;
+                }
+            }
+            &.gridMode {
+                @include responsiveGridLayout($itemWidth: 350px, $justify: start, $gap: 50px);
+                .projectCard {
+                    width: 350px;
+                    height: 350px;
+                    background-color: red;
+                    
+                }
+            }
+            &.carouselMode {
+                padding: 15px 0 !important;
+                position: relative;
+                .mySwiper {
+                    width: 100%;
+                    height: 100%;
+                }
+                .swiperCard {
+                    width: 60vw;
+                    min-width: 360px;
+                }
+                .projectCardWrapper {
+                    height: 50vh;
+                    min-height: 375px;
+                    transition: transform .3s ease-in-out;
+                    transform: scale(0.8);
+                    transform-origin: center;
+                    &.active {
+                        transform: scale(1);
+                    }
+                }
+                .projectCard {
+                    width: 100%;
+                    height: 100%;
+                    border: 1px solid red;
+                }
+            }
+        }
+    }
+}
