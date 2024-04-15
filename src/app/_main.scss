@@ -1,0 +1,44 @@
+$backgroundColor: rgb(41,41,41);
+
+$navbarHeight: 70px;
+
+$themeGold: #c9a461;
+
+$themeBlue: rgb(54, 148, 243);
+
+@mixin wrappedFlexDisplaying($direction: row, $justify: flex-start, $align: stretch) {
+    display: flex !important;
+    flex-direction: $direction;
+    justify-content: $justify;
+    align-items: $align;
+    flex-wrap: wrap;
+}
+
+@mixin flexDisplaying($direction: row, $justify: flex-start, $align: stretch) {
+    display: flex !important;
+    flex-direction: $direction;
+    justify-content: $justify;
+    align-items: $align;
+}
+
+@mixin responsiveGridLayout($itemWidth, $gap: 15px, $justify: space-around) {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, $itemWidth);
+    gap: $gap;
+    justify-content: $justify;
+}
+
+@mixin styledVerticalScrollbar($thumbColour: grey, $trackColor: inherit) {
+    /* supported in chrome, edge, safari only */
+    &::-webkit-scrollbar{
+        width: 10px;
+    }
+    &::-webkit-scrollbar-track {
+        background: inherit;
+    }
+    &::-webkit-scrollbar-thumb {
+        width: 8px;
+        background-color: $thumbColour;
+        border-radius: 15px;
+    }
+}

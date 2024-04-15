@@ -1,0 +1,26 @@
+@import '@/app/main';
+
+.container {
+    height: 100%;
+    padding: 40px 3.2%;
+    overflow-y: auto;
+    @include styledVerticalScrollbar();
+    //@include flexDisplaying($direction: column, $justify: center);
+    .technologiesContainer {
+        min-height: 70vh;
+        @include responsiveGridLayout($itemWidth: 200px, $gap: 50px);
+        .card {
+            @include flexDisplaying($direction: column, $align: center);
+            gap: 8px;
+            width: 200px;
+            //margin-bottom: 30px;
+            .imageWrapper {
+                background-color: white;
+                overflow: hidden;
+                border-radius: 8px;
+                width: 200px;
+                height: 200px;
+            }
+        }
+    }
+}

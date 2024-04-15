@@ -1,0 +1,60 @@
+@import '@/app/main';
+
+.container {
+    position: relative;
+    height: 100%;
+    .leftContainer, .middleContainer {
+        z-index: 1;
+        height: 100%;
+    }
+    .leftContainer {
+        width: 60%;
+        .contentContainer {
+            width: 100%;
+            height: calc(100% - 40px);
+            width: 100%;
+            padding: 0 18vw 0 5%;
+            height: calc(100% - $navbarHeight);
+            @include flexDisplaying($direction: column, $justify: center);
+            h1 {
+                font-size: 3.7rem;
+            }
+            .caption {
+                font-size: x-large;
+            }
+            .description {
+                margin-top: 50px;
+                font-size: larger;
+                p:first-child {
+                    margin-bottom: 16px;
+                }
+            }
+        }
+    }
+    .middleContainer {
+        position: absolute;
+        top: 0;
+        left: calc(46% - 30px);
+        width: calc(28% + 40px);
+        @include flexDisplaying($direction: column, $justify: center);
+        .pictureContainer {
+            border: 20px solid $backgroundColor;
+            overflow: hidden;
+            width: 100%;
+            border-radius: 50%;
+        }
+    }
+    .rightContainer {
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 40%;
+        height: 100vh;
+        /* background-attachment: scroll;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center; */
+        overflow: hidden;
+        z-index: 0;
+    }
+}
