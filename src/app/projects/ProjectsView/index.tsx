@@ -6,13 +6,13 @@ import ModeChip from './ModeChip'
 import SlideInItem from '@/components/SlideInItem'
 import { useSearchParams } from 'next/navigation'
 import ProjectCard from './ProjectCard'
-import { ViewMode, viewModes } from '../page'
 
 import { SwiperSlide } from 'swiper/react';
 
 import 'swiper/css';
 import 'swiper/css/pagination';
 import SwiperContainer from './SwiperContainer'
+import { ViewMode, viewModes } from '../ViewData'
 
 
 type Props = {

@@ -3,20 +3,11 @@ import { getProjects } from '@/lib/helpers/projects';
 import Heading from '@/components/AnimatedHeading';
 import Container from '@/components/Container';
 import ProjectsView from './ProjectsView';
-
-export const viewModes = ['list', 'grid', 'carousel'] as const
-
-export type ViewMode = 'list' | 'grid' | 'carousel'
-
-const getViewModeParam = (arg: string | null): ViewMode => {
-    if(!arg || !viewModes.includes(arg.trim().toLowerCase() as ViewMode))
-        return 'list'
-    return arg.trim().toLowerCase() as ViewMode
-}
+import { ViewMode, getViewModeParam } from './ViewData';
 
 type Props = {
     searchParams: {
-        viewMode?: string
+        viewMode?: ViewMode
     }
 }
 export default function page({ searchParams: { viewMode = 'list' } }: Props) {
