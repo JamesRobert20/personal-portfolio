@@ -6,29 +6,20 @@ import ModeChip from './ModeChip'
 import SlideInItem from '@/components/SlideInItem'
 import { useSearchParams } from 'next/navigation'
 import ProjectCard from './ProjectCard'
+import { ViewMode, viewModes } from '../page'
 
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Pagination } from 'swiper/modules';
+import { SwiperSlide } from 'swiper/react';
+
 import 'swiper/css';
 import 'swiper/css/pagination';
+import SwiperContainer from './SwiperContainer'
 
-export const viewModes = ['list', 'grid', 'carousel'] as const
-
-export type ViewMode = 'list' | 'grid' | 'carousel'
-
-const getViewModeParam = (arg: string | null): ViewMode => {
-    if(!arg || !viewModes.includes(arg.trim().toLowerCase() as ViewMode))
-        return 'list'
-    return arg.trim().toLowerCase() as ViewMode
-}
 
 type Props = {
-    projects: ProjectItem[]
+    projects: ProjectItem[],
+    viewMode: ViewMode
 }
-export default function ProjectsView({ projects }: Props) {
-    const searchParams = useSearchParams();
-    const viewMode = getViewModeParam(searchParams.get('viewMode'));
-
+export default function ProjectsView({ projects, viewMode }: Props) { 
     const containerClass = viewMode === 'list' ? styles.listMode
     : viewMode === 'grid' ? styles.gridMode 
     : styles.carouselMode;
@@ -45,20 +36,9 @@ export default function ProjectsView({ projects }: Props) {
                 className={`${styles.projectsContainer} ${containerClass}`}
             >
                 {viewMode === 'carousel' ?
-                    <Swiper
-                        loop={projects.length > 3}
-                        slidesPerView={3}
-                        spaceBetween={40}
-                        centeredSlides={true}
-                        pagination={{ clickable: true }}
-                        modules={[Pagination]}
-                        className={styles.mySwiper}
-                    >
+                    <SwiperContainer shouldLoop={projects.length > 3}>
                         {projects.map(project => 
-                            <SwiperSlide 
-                                key={project.id}
-                                className={styles.swiperCard}
-                            >
+                            <SwiperSlide key={project.id} className={styles.swiperCard}>
                                 {({ isActive }) => (
                                     <div className={`${styles.projectCardWrapper} ${isActive ? styles.active : ""}`}>
                                         <ProjectCard 
@@ -68,8 +48,8 @@ export default function ProjectsView({ projects }: Props) {
                                     </div>
                                 )}
                             </SwiperSlide>
-                    )}
-                    </Swiper>
+                        )}
+                    </SwiperContainer>
                     :<>
                         {projects.map(project => 
                             <ProjectCard key={project.id} project={project} viewMode={viewMode}  />

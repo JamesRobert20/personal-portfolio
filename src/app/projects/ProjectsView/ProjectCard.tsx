@@ -1,7 +1,6 @@
 import { ProjectItem } from "@/lib/types/Project"
-import { ViewMode } from "."
 import styles from '../page.module.scss'
-
+import { ViewMode } from "../page"
 
 type Props = {
     project: ProjectItem,
