@@ -16,7 +16,7 @@ const getViewModeParam = (arg: string | null): ViewMode => {
 
 type Props = {
     searchParams: {
-        viewMode?: ViewMode
+        viewMode?: string
     }
 }
 export default function page({ searchParams: { viewMode = 'list' } }: Props) {
