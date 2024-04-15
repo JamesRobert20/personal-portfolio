@@ -1,5 +1,5 @@
+import { ViewMode } from '../ViewData'
 import styles from '../page.module.scss'
-import { ViewMode } from '.'
 import Link from 'next/link'
 
 type Props = {
