@@ -2,6 +2,7 @@ import { getLink } from '@/lib/helpers'
 import styles from './page.module.scss'
 import SlideInItem from '@/components/SlideInItem';
 import RightComponents from './RightComponents';
+import PersonalImage from './PersonalImage';
 
 export default function Home() {
     const heroImageSrc = getLink('homeHero');
@@ -12,6 +13,7 @@ export default function Home() {
         <div className={styles.container}>
             <div className={styles.leftContainer}>
                 <SlideInItem direction='vertical' className={styles.contentContainer}>
+                    <PersonalImage personalImage={personalImage} />
                     <div>
                         <h1>James Mtendamema</h1>
                         <p className={styles.caption}>
