@@ -10,7 +10,7 @@ export default function ModeChip ({ mode, isActive }: Props) {
     return (
         <Link href={`projects?viewMode=${mode}`} className={`${isActive ? styles.disabled : ""}`}>
             <div className={`${styles.modeChip} ${isActive ? styles.active : ""}`}>
-                {mode}
+                {`${mode} view`}
             </div>
         </Link>
     )

@@ -5,11 +5,12 @@ import { CSSProperties, PropsWithChildren } from "react"
 
 type Props = PropsWithChildren<{
     className?: string,
-    style?: CSSProperties
+    style?: CSSProperties,
+    domId?: string
 }>;
-export default function Heading({ className, style, children }: Props) {
+export default function Heading({ domId, className, style, children }: Props) {
     return (
-        <motion.h1 
+        <motion.h1 id={domId}
             initial={{ opacity: 0, y: 40 }}
             animate={{
                 opacity: 1, y: 0,

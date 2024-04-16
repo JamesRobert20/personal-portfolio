@@ -1,8 +1,7 @@
 import { getLink } from '@/lib/helpers'
 import styles from './page.module.scss'
 import SlideInItem from '@/components/SlideInItem';
-import ResponsiveImage from '@/components/ResponsiveImage';
-import HeroImage from './HeroImage';
+import RightComponents from './RightComponents';
 
 export default function Home() {
     const heroImageSrc = getLink('homeHero');
@@ -33,19 +32,7 @@ export default function Home() {
                     </div>
                 </SlideInItem>
             </div>
-            <div className={styles.middleContainer}>
-                <SlideInItem direction='vertical' className={styles.pictureContainer}>
-                    <ResponsiveImage
-                        priority={true}
-                        src={personalImage}
-                        width={674} height={674}
-                        windowRatio={0.28}
-                    />
-                </SlideInItem>
-            </div>
-            <div className={styles.rightContainer}>
-                <HeroImage src={heroImageSrc} />
-            </div>
+            <RightComponents heroImageSrc={heroImageSrc} personalImage={personalImage} />
         </div>
     )
 }

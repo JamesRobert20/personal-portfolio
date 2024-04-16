@@ -5,6 +5,7 @@ import styles from './index.module.scss'
 import FullLinks from './FullLinks';
 import Drawer from './Drawer';
 import useAppContext from '@/hooks/useAppContext';
+import { usePathname } from 'next/navigation';
 
 export type RoutesType = 'Home' | 'Tech Stack' | 'Projects' | 'Inquiries';
 
@@ -26,10 +27,14 @@ export default function Navbar() {
         }
     }, []);
 
+    const pathname = usePathname().toLowerCase().replaceAll(/[^a-z]+/g, "");
+
     const { isScrolling } = useAppContext();
+
+    const shouldScroll = (pathname === 'techstack') && isScrolling;
     
     return (
-        <div className={`${styles.container} ${isScrolling ? styles.shadow : ""}`}>
+        <div className={`${styles.container} ${shouldScroll ? styles.shadow : ""}`}>
             {enoughSpaceForLinks ? <FullLinks /> : <Drawer />}
         </div>
     )
