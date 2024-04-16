@@ -1,7 +1,6 @@
 import styles from './page.module.scss';
 import { getProjects } from '@/lib/helpers/projects';
 import Heading from '@/components/AnimatedHeading';
-import Container from '@/components/Container';
 import ProjectsView from './ProjectsView';
 import { ViewMode, getViewModeParam } from './ViewData';
 
@@ -16,11 +15,11 @@ export default function page({ searchParams: { viewMode = 'list' } }: Props) {
     const mode = getViewModeParam(viewMode);
 
     return (
-        <Container className={styles.container}>
+        <div className={styles.container}>
             <Heading style={{ fontSize: "3rem", paddingLeft: "3.2%" }}>
                 {`Some of my projects:`}
             </Heading>
             <ProjectsView viewMode={mode} projects={projects} />
-        </Container>
+        </div>
     )
 }

@@ -28,3 +28,27 @@
         }  
     }
 }
+
+.swipeableDrawer {
+    > div:nth-child(3) {
+        background-color: $backgroundColor;
+    }
+}
+.menuTop {
+    height: $navbarHeight;
+    .innerContainer {
+        padding: 0 10px;
+        height: 100%;
+        @include flexDisplaying($direction: row-reverse, $align: center, $gap: 10px);
+    }
+}
+.drawerText {
+    color: white;
+    text-align: left;
+    span {
+        font-weight: 500;
+    }
+    &.active {
+        color: $themeGold;
+    }
+}

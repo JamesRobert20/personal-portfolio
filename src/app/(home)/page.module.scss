@@ -34,7 +34,7 @@
     .middleContainer {
         position: absolute;
         top: 0;
-        left: calc(46% - 30px);
+        left: calc(46% - 35px);
         width: calc(28% + 40px);
         @include flexDisplaying($direction: column, $justify: center);
         .pictureContainer {

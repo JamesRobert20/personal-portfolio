@@ -4,7 +4,6 @@ import { useEffect, useState } from 'react';
 import styles from './index.module.scss'
 import FullLinks from './FullLinks';
 import Drawer from './Drawer';
-import SlideInWrapper from '@/components/SlideInWrapper';
 import useAppContext from '@/hooks/useAppContext';
 
 export type RoutesType = 'Home' | 'Tech Stack' | 'Projects' | 'Inquiries';

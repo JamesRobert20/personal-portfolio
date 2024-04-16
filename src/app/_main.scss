@@ -14,14 +14,15 @@ $themeBlue: rgb(54, 148, 243);
     flex-wrap: wrap;
 }
 
-@mixin flexDisplaying($direction: row, $justify: flex-start, $align: stretch) {
+@mixin flexDisplaying($direction: row, $gap: 10px, $justify: flex-start, $align: stretch) {
     display: flex !important;
     flex-direction: $direction;
     justify-content: $justify;
     align-items: $align;
+    gap: $gap;
 }
 
-@mixin responsiveGridLayout($itemWidth, $gap: 15px, $justify: space-around) {
+@mixin responsiveGridLayout($itemWidth, $gap: 10px, $justify: space-around) {
     display: grid;
     grid-template-columns: repeat(auto-fit, $itemWidth);
     gap: $gap;
