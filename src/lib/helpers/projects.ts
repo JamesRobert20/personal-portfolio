@@ -5,28 +5,28 @@ const projects = [
     {
         id: "1",
         name: "Markethub TZ",
-        image: "#",
+        image: getLink("markethubtz"),
         description: "",
         techstack: ["Typescript", "React", "Next js", "Sass", "React Query", "AWS", "MongoDB"]
     },
     {
         id: "2",
         name: "Greenorum",
-        image: "#",
+        image: getLink("greenorum"),
         description: "",
         techstack: ["Next js", "React", "Sass", "Framer motion", "Firebase", "React Query", "AWS"]
     },
     {
         id: "3",
         name: "Campus Buddy",
-        image: "#",
+        image: getLink("campusbuddy"),
         description: "",
         techstack: ["Next js", "React", "Sass", "Framer motion", "Firebase", "React Query", "AWS"]
     },
     {
         id: "4",
         name: "Portfolio",
-        image: "#",
+        image: getLink("portfolio"),
         description: "",
         techstack: ["Next js", "React", "Sass", "Framer motion", "Firebase", "React Query", "AWS"]
     },

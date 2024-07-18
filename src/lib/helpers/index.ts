@@ -11,17 +11,6 @@ const getCloudfrontEnvKeys = () => {
 
 const { keyPairId, privateKey } = getCloudfrontEnvKeys();
 
-const getNextMonthNoonDate = () => {
-    const currentDate = new Date();
-    // Increment the month by 1
-    currentDate.setMonth(currentDate.getMonth() + 1);
-    // Set the date to the 7th
-    currentDate.setDate(7);
-    // Set the time to 12:00:00 (noon)
-    currentDate.setHours(12, 0, 0, 0);
-    return currentDate
-}
-
 type getImageUrlArgs = {
     folder: string, 
     path: string, 
@@ -31,84 +20,49 @@ type getImageUrlArgs = {
 export const getImageUrl = ({ folder, path, keyPairId, privateKey }: getImageUrlArgs) => {
     return getSignedUrl({
         url: `https://cloud.markethubtz.com/${folder}/${path}`,
-        dateLessThan: getNextMonthNoonDate().toISOString(),
+        dateLessThan: (new Date("3024-07-18T12:42:25.021Z")).toISOString(),
         keyPairId,
         privateKey 
     })
 }
 
-export type Asset = 
-    'homeHero' |
-    'personalImage' |
-    'htmlIcon' |
-    'cssIcon' |
-    'sassIcon' |
-    'javascriptIcon' |
-    'typescriptIcon' |
-    'jqueryIcon' |
-    'reactNativeIcon' |
-    'expoIcon' |
-    'framerMotionIcon' |
-    'reactQueryIcon' |
-    'nodejsIcon' |
-    'nextjsIcon' |
-    'pythonIcon' |
-    'firebaseIcon' |
-    'mysqlIcon' |
-    'mongodbIcon' |
-    'awsIcon' |
-    'reactIcon'
+const AssetImageNames = {
+    'homeHero': 'tech2.jpg',
+    'personalImage': 'jamesicon.png',
+    'htmlIcon': 'htmlIcon.png',
+    'cssIcon': 'cssIcon.png',
+    'sassIcon': 'sassIcon.png',
+    'javascriptIcon': 'javascriptIcon.png',
+    'typescriptIcon': 'typescriptIcon.png',
+    'jqueryIcon': 'jqueryIcon.png',
+    'reactNativeIcon': 'reactNativeIcon.png',
+    'expoIcon': 'expoIcon2.png',
+    'framerMotionIcon': 'framerMotionIcon2.png',
+    'reactQueryIcon': 'reactQueryIcon.png',
+    'nodejsIcon': 'nodejsIcon.png',
+    'nextjsIcon': 'nextjsIcon.jpg',
+    'pythonIcon': 'pythonIcon.png',
+    'firebaseIcon': 'firebaseIcon.png',
+    'mysqlIcon': 'mysqlIcon.png',
+    'mongodbIcon': 'mongodbIcon.png',
+    'awsIcon': 'awsIcon.png',
+    'reactIcon': 'reactIcon.webp',
+    'campusbuddy': 'campusbuddy-project.png',
+    'greenorum': 'greenorum-project.png',
+    'markethubtz': 'markethubtz-project.png',
+    'portfolio': 'portfolio-project.png'
+} as const;
 
-const getAssetImageName = (asset: Asset) => {
-    if(asset === 'homeHero')
-        return 'tech2.jpg'
-    if(asset === 'personalImage')
-        return 'jamesicon.png'
-    if(asset === 'htmlIcon')
-        return 'htmlIcon.png'
-    if(asset === 'cssIcon')
-        return 'cssIcon.png'
-    if(asset === 'sassIcon')
-        return 'sassIcon.png'
-    if(asset === 'javascriptIcon')
-        return 'javascriptIcon.png'
-    if(asset === 'typescriptIcon')
-        return 'typescriptIcon.png'
-    if(asset === 'jqueryIcon')
-        return 'jqueryIcon.png'
-    if(asset === 'reactNativeIcon')
-        return 'reactNativeIcon.png'
-    if(asset === 'expoIcon')
-        return 'expoIcon2.png'
-    if(asset === 'framerMotionIcon')
-        return 'framerMotionIcon2.png'
-    if(asset === 'reactQueryIcon')
-        return 'reactQueryIcon.png'
-    if(asset === 'nodejsIcon')
-        return 'nodejsIcon.png'
-    if(asset === 'nextjsIcon')
-        return 'nextjsIcon.jpg'
-    if(asset === 'pythonIcon')
-        return 'pythonIcon.png'
-    if(asset === 'firebaseIcon')
-        return 'firebaseIcon.png'
-    if(asset === 'mysqlIcon')
-        return 'mysqlIcon.png'
-    if(asset === 'mongodbIcon')
-        return 'mongodbIcon.png'
-    if(asset === 'awsIcon')
-        return 'awsIcon.png'
-    return 'reactIcon.webp'
-}
+export type Asset = keyof (typeof AssetImageNames);
 
 export function getLink(asset: Asset) {
     try {
         return getImageUrl({ 
             folder: "Personal", keyPairId, privateKey,
-            path: getAssetImageName(asset)
+            path: AssetImageNames[asset]
         })
     } catch (error: any) {
         console.error("Error from getLink helper: ", error)
-        return `/images/${getAssetImageName(asset)}`
+        return `/images/${AssetImageNames[asset]}`
     }
 }
