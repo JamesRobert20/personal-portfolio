@@ -5,11 +5,8 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start -p $PORT",
+    "start": "next start",
     "lint": "next lint"
-  },
-  "engines": {
-    "node": ">=18.x"
   },
   "dependencies": {
     "@aws-sdk/cloudfront-signer": "^3.541.0",
