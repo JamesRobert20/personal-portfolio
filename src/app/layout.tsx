@@ -7,13 +7,13 @@ import LayoutComponent from "./LayoutComponent";
 const open_sans = Open_Sans({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-    title: "James Robert | Full Stack Developer",
-    description: "Portfolio of James Robert - Full Stack Developer specializing in React, Next.js, and modern web technologies.",
-    keywords: ["James Robert", "Full Stack Developer", "React", "Next.js", "Portfolio"],
-    authors: [{ name: "James Robert" }],
+    title: "James Mtendamema | Full Stack Developer",
+    description: "Portfolio of James Mtendamema - Full Stack Developer specializing in React, Next.js, and modern web technologies.",
+    keywords: ["James Mtendamema", "Full Stack Developer", "React", "Next.js", "Portfolio"],
+    authors: [{ name: "James Mtendamema" }],
     openGraph: {
-        title: "James Robert | Full Stack Developer",
-        description: "Portfolio of James Robert - Full Stack Developer specializing in React, Next.js, and modern web technologies.",
+        title: "James Mtendamema | Full Stack Developer",
+        description: "Portfolio of James Mtendamema - Full Stack Developer specializing in React, Next.js, and modern web technologies.",
         type: "website",
     },
 };
