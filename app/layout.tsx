@@ -1,36 +1,49 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import GeistSans from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"] });
+const geistSans = GeistSans({
+ variable: "--font-geist-sans",
+ subsets: ["latin"],
+});
 
 export const metadata: Metadata = {
-  title: "James Robert | Full Stack Developer",
-  description: "Full Stack Developer with 5+ years of experience building scalable web applications with React, Node.js, and TypeScript.",
-  keywords: ["Full Stack Developer", "React", "Node.js", "TypeScript", "Web Development"],
-  authors: [{ name: "James Robert" }],
-  openGraph: {
-    title: "James Robert | Full Stack Developer",
-    description: "Full Stack Developer with 5+ years of experience building scalable web applications with React, Node.js, and TypeScript.",
-    type: "website",
-    locale: "en_US",
-    siteName: "James Robert Portfolio",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "James Robert | Full Stack Developer",
-    description: "Full Stack Developer with 5+ years of experience building scalable web applications with React, Node.js, and TypeScript.",
-  },
+ title: "James Robert | Full Stack Developer",
+ description: "Full Stack Developer with 5+ years of experience building scalable web applications. React, Next.js, Node.js, TypeScript.",
+ keywords: ["Full Stack Developer", "React", "Next.js", "Node.js", "TypeScript", "James Robert"],
+ authors: [{ name: "James Robert" }],
+ creator: "James Robert",
+ metadataBase: new URL("https://jamesrobert.dev"),
+ openGraph: {
+   title: "James Robert | Full Stack Developer",
+   description: "Full Stack Developer with 5+ years of experience building scalable web applications.",
+   url: "https://jamesrobert.dev",
+   siteName: "James Robert Portfolio",
+   locale: "en_US",
+   type: "website",
+ },
+ twitter: {
+   card: "summary_large_image",
+   title: "James Robert | Full Stack Developer",
+   description: "Full Stack Developer with 5+ years of experience building scalable web applications.",
+   creator: "@jamesrobertdev",
+ },
+ robots: {
+   index: true,
+   follow: true,
+ },
 };
 
 export default function RootLayout({
-  children,
+ children,
 }: Readonly<{
-  children: React.ReactNode;
+ children: React.ReactNode;
 }>) {
-  return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
-    </html>
-  );
+ return (
+   <html lang="en">
+     <body className={`${geistSans.variable} antialiased`}>
+       {children}
+     </body>
+   </html>
+ );
 }
