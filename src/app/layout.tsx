@@ -1,21 +1,19 @@
 import type { Metadata } from "next";
-import { Open_Sans } from "next/font/google";
 import "./globals.css";
-import "./App.scss";
-import LayoutComponent from "./LayoutComponent";
-
-const open_sans = Open_Sans({ subsets: ["latin"] });
+import "./index.scss";
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/autoplay";
+import "swiper/css/effect-cards";
+import "swiper/css/scrollbar";
+import { GlobalContextProvider } from "./contexts/GlobalContext";
 
 export const metadata: Metadata = {
     title: "James Mtendamema | Full Stack Developer",
-    description: "Full Stack Developer with 4 years of industry experience building responsive, fast-performing web applications. Specialized in React, Next.js, and modern backend architectures.",
-    keywords: ["Full Stack Developer", "React", "Next.js", "TypeScript", "Web Development", "Frontend Developer", "Software Engineer"],
-    authors: [{ name: "James Mtendamema" }],
-    openGraph: {
-        title: "James Mtendamema | Full Stack Developer",
-        description: "Full Stack Developer with 4 years of industry experience building responsive, fast-performing web applications.",
-        type: "website",
-    },
+    description:
+        "Full Stack Developer with 5 years of experience in React, Vue, Next.js, and Node.js. View my projects and get in touch.",
+    keywords:
+        "James Mtendamema, Full Stack Developer, React, Vue, Next.js, Node.js, Web Developer, Software Engineer",
 };
 
 export default function RootLayout({
@@ -25,10 +23,8 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en">
-            <body className={open_sans.className}>
-                <LayoutComponent>
-                    {children}
-                </LayoutComponent>
+            <body>
+                <GlobalContextProvider>{children}</GlobalContextProvider>
             </body>
         </html>
     );
