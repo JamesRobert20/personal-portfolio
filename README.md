@@ -104,6 +104,16 @@ src/
 
 Remote images come from `cloud.markethubtz.com`, which is allow-listed in `next.config.mjs`.
 
-## Deployment
+## Deploying to Vercel
 
-Any host that supports Next.js 14 works. Set `CLOUDFRONT_KEY_PAIR_ID` and `CLOUDFRONT_PRIVATE_KEY` in the host's environment settings before building, since the build needs them.
+1. Push the repo to GitHub and import it at [vercel.com/new](https://vercel.com/new).
+2. Vercel detects Next.js and Yarn automatically. Keep the defaults:
+   - Build command: `yarn build`
+   - Install command: `yarn install`
+   - Output directory: leave empty
+3. Before the first deploy, open **Settings → Environment Variables** and add `CLOUDFRONT_KEY_PAIR_ID` and `CLOUDFRONT_PRIVATE_KEY` (see [Environment variables](#environment-variables)). Enable them for Production, Preview and Development. The build fails without them.
+4. Deploy. Every push to `master` goes to production, and every pull request gets its own preview URL.
+
+If the private key is multiline, paste it as-is including the `-----BEGIN/END-----` lines, or use the single-line form with `\n` escapes. If images fall back to the local copies after deploying, check that the key's newlines survived.
+
+Other hosts that support Next.js 14 also work. Set the same two environment variables before building.
